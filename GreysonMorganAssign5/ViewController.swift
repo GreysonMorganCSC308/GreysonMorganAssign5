@@ -9,9 +9,10 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet var tableView: UITableView!
     var toDoList = ["Example One", "Example Two"]
     var toDoDesc = ["This is a description for example item one.", "This is a description for example item two."]
-    var toDoComp = [false, false]
+    var toDoComp = [false, true]
     
     var selectedItem = -1
     
@@ -106,12 +107,13 @@ extension ViewController: UITableViewDataSource {
 
 extension ViewController: DataDelegate {
     func dataToPass(_ data: Bool, _ name: String) {
-        print("got here")
         if(toDoList.contains(name)) {
             guard let index = toDoList.firstIndex(of: name) else {
                 return
             }
             toDoComp[index] = data
+            
+            tableView.reloadData()
         }
     }
 }

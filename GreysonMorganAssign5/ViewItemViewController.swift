@@ -17,6 +17,10 @@ class ViewItemViewController: UIViewController {
     
     @IBAction func switchToggled(_ sender: Any) {
         itemCompleted?.toggle()
+        guard let comp = itemCompleted, let name = itemName else {
+            return
+        }
+        delegate?.dataToPass(comp, name)
     }
     @IBOutlet weak var descView: UITextView!
     @IBOutlet weak var compSwitch: UISwitch!
@@ -26,14 +30,6 @@ class ViewItemViewController: UIViewController {
         descView.text = itemDesc
         compSwitch.isOn = itemCompleted ?? false
         // Do any additional setup after loading the view.
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let comp = itemCompleted, let name = itemName else {
-            return
-        }
-        print("got here")
-        delegate?.dataToPass(comp, name)
     }
 
 }
