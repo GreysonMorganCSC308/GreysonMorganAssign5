@@ -21,14 +21,20 @@ class AddViewController: UIViewController {
             return
         }
         delegate?.dataToAdd(name, desc, comp)
-        self.dismiss(animated: true, completion: nil)
+        nameField.text = ""
+        descField.text = ""
+        compSwitch.setOn(false, animated: false)
+        let alert = UIAlertController(title: "Success!", message: "Item successfully added!", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default)
+        alert.addAction(action)
+        present(alert, animated: true)
     }
     @IBOutlet weak var compSwitch: UISwitch!
     @IBOutlet weak var descField: UITextView!
     @IBOutlet weak var nameField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        compSwitch.setOn(false, animated: false)
         // Do any additional setup after loading the view.
     }
 

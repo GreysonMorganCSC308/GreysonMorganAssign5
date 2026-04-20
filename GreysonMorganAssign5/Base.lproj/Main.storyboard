@@ -48,17 +48,31 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wdI-lb-CMa">
+                                <rect key="frame" x="16" y="680" width="361" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="SS6-gi-Ock"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Remove Item"/>
+                                <connections>
+                                    <action selector="removeButtonHit:" destination="4dv-iA-f6Y" eventType="touchUpInside" id="jYv-H0-5yf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YTp-gT-Rbd"/>
                         <color key="backgroundColor" systemColor="systemGray5Color"/>
                         <constraints>
                             <constraint firstItem="dMu-Z9-oxe" firstAttribute="leading" secondItem="YTp-gT-Rbd" secondAttribute="leading" constant="16" id="9t2-MC-Xvv"/>
                             <constraint firstItem="iP4-JC-aIW" firstAttribute="leading" secondItem="YTp-gT-Rbd" secondAttribute="leading" constant="16" id="Bpu-iq-IJJ"/>
+                            <constraint firstItem="wdI-lb-CMa" firstAttribute="leading" secondItem="YTp-gT-Rbd" secondAttribute="leading" constant="16" id="D8b-I6-qme"/>
                             <constraint firstItem="YTp-gT-Rbd" firstAttribute="trailing" secondItem="dMu-Z9-oxe" secondAttribute="trailing" constant="16" id="DNz-uz-12C"/>
                             <constraint firstItem="iP4-JC-aIW" firstAttribute="top" secondItem="dMu-Z9-oxe" secondAttribute="bottom" constant="10" id="Mza-OK-F6M"/>
                             <constraint firstItem="YTp-gT-Rbd" firstAttribute="trailing" secondItem="cIn-cO-nQ4" secondAttribute="trailing" constant="16" id="NTH-cV-oA1"/>
                             <constraint firstItem="cIn-cO-nQ4" firstAttribute="top" secondItem="dMu-Z9-oxe" secondAttribute="bottom" constant="10" id="bQU-x0-QIh"/>
                             <constraint firstItem="dMu-Z9-oxe" firstAttribute="top" secondItem="YTp-gT-Rbd" secondAttribute="top" constant="10" id="lDa-CO-ZMv"/>
+                            <constraint firstItem="wdI-lb-CMa" firstAttribute="top" secondItem="iP4-JC-aIW" secondAttribute="bottom" constant="150" id="uxM-T3-CgW"/>
+                            <constraint firstItem="YTp-gT-Rbd" firstAttribute="trailing" secondItem="wdI-lb-CMa" secondAttribute="trailing" constant="16" id="wNg-wg-fBx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="y3n-Gy-Cy6"/>

@@ -9,6 +9,7 @@ import UIKit
 
 class ViewItemViewController: UIViewController {
     
+    
     var itemName: String? = ""
     var itemDesc: String? = ""
     var itemCompleted: Bool? = false
@@ -22,6 +23,19 @@ class ViewItemViewController: UIViewController {
         }
         delegate?.dataToPass(comp, name)
     }
+    
+    @IBAction func removeButtonHit(_ sender: Any) {
+        let alert = UIAlertController(title: "Are you sure?", message: "Are you sure you want to delete this item?", preferredStyle: .alert)
+        let yesAction = UIAlertAction(title: "Remove Item", style: .destructive) { (action) in
+            
+            self.delegate?.removeItem()
+        }
+        let noAction = UIAlertAction(title: "Cancel", style: .cancel)
+        alert.addAction(yesAction)
+        alert.addAction(noAction)
+        present(alert, animated: true)
+    }
+    
     @IBOutlet weak var descView: UITextView!
     @IBOutlet weak var compSwitch: UISwitch!
     override func viewDidLoad() {
@@ -36,4 +50,5 @@ class ViewItemViewController: UIViewController {
 
 protocol ViewDataDelegate: AnyObject {
     func dataToPass(_ comp: Bool, _ name: String)
+    func removeItem()
 }

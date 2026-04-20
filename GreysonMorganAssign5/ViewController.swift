@@ -126,6 +126,19 @@ extension ViewController: ViewDataDelegate {
             tableView.reloadData()
         }
     }
+    
+    func removeItem() {
+        toDoList.remove(at: selectedItem)
+        toDoComp.remove(at: selectedItem)
+        toDoDesc.remove(at: selectedItem)
+        
+        tableView.reloadData()
+        
+        let alert = UIAlertController(title: "Item Removed", message: "Item was successfully removed", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default)
+        alert.addAction(action)
+        present(alert, animated: true)
+    }
 }
 
 extension ViewController: AddDataDelegate {
