@@ -13,7 +13,7 @@ class ViewItemViewController: UIViewController {
     var itemDesc: String? = ""
     var itemCompleted: Bool? = false
     
-    weak var delegate: DataDelegate?
+    weak var delegate: ViewDataDelegate?
     
     @IBAction func switchToggled(_ sender: Any) {
         itemCompleted?.toggle()
@@ -34,6 +34,6 @@ class ViewItemViewController: UIViewController {
 
 }
 
-protocol DataDelegate: AnyObject {
+protocol ViewDataDelegate: AnyObject {
     func dataToPass(_ comp: Bool, _ name: String)
 }

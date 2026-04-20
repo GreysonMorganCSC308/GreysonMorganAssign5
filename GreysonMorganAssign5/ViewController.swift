@@ -30,6 +30,10 @@ extension ViewController: UITableViewDelegate {
         case 0:
             selectedItem = indexPath.row
             self.performSegue(withIdentifier: "viewSegue", sender: self)
+            break
+        case 1:
+            self.performSegue(withIdentifier: "addSegue", sender: self)
+            break
         default:
             break
         }
@@ -99,13 +103,19 @@ extension ViewController: UITableViewDataSource {
             dest.itemCompleted = toDoComp[selectedItem]
             dest.delegate = self
             break
+        case "addSegue":
+            guard let dest = segue.destination as? AddViewController else {
+                return
+            }
+            dest.delegate = self
+            break
         default:
             break
         }
     }
 }
 
-extension ViewController: DataDelegate {
+extension ViewController: ViewDataDelegate {
     func dataToPass(_ data: Bool, _ name: String) {
         if(toDoList.contains(name)) {
             guard let index = toDoList.firstIndex(of: name) else {
@@ -115,5 +125,14 @@ extension ViewController: DataDelegate {
             
             tableView.reloadData()
         }
+    }
+}
+
+extension ViewController: AddDataDelegate {
+    func dataToAdd(_ name: String, _ desc: String, _ comp: Bool) {
+        toDoList.append(name)
+        toDoDesc.append(desc)
+        toDoComp.append(comp)
+        tableView.reloadData()
     }
 }
